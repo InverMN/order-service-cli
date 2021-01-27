@@ -1,12 +1,10 @@
 package me.inver.orderservicecli.cli;
 
+import me.inver.orderservicecli.Main;
 import me.inver.orderservicecli.common.ObjectId;
+import me.inver.orderservicecli.common.Role;
 import me.inver.orderservicecli.model.Client;
-import me.inver.orderservicecli.model.Order;
 import me.inver.orderservicecli.repository.ClientRepository;
-import me.inver.orderservicecli.repository.OrderRepository;
-
-import java.math.BigDecimal;
 
 public class ClientCLI implements CLI, Service<Client>{
     private final ClientRepository clientRepository = new ClientRepository();
