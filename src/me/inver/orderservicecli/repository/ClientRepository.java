@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class ClientRepository implements Repository<Client> {
+    public static ClientRepository clientRepository = new ClientRepository();
     private ArrayList<Client> clients = new ArrayList<>();
 
     @Override

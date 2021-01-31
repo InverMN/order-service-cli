@@ -2,16 +2,15 @@ package me.inver.orderservicecli;
 
 import me.inver.orderservicecli.cli.Entrypoint;
 import me.inver.orderservicecli.common.Role;
+import me.inver.orderservicecli.exception.InvalidArgumentsException;
 
 import java.util.Scanner;
 
 public class Main {
-    private static final Entrypoint entrypoint = new Entrypoint();
     public static Role role;
 
     public static void main(String[] args) {
         setRole(args);
-        System.out.println(role);
 	    listenCommands();
     }
 
@@ -21,10 +20,15 @@ public class Main {
 
     static private void listenCommands() {
         var scanner = new Scanner(System.in);
+        var entrypoint = new Entrypoint();
         while(true) {
             String command = scanner.nextLine();
             String[] commandFragments = command.split("\\s+");
-            entrypoint.execute(commandFragments);
+            try {
+                entrypoint.execute(commandFragments);
+            } catch (InvalidArgumentsException exception) {
+                System.out.println("Invalid command arguments!");
+            }
         }
     }
 }

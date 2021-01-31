@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class OrderRepository implements Repository<Order> {
+    public static OrderRepository orderRepository = new OrderRepository();
     private ArrayList<Order> orders = new ArrayList<>();
 
     @Override
